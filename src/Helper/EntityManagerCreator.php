@@ -7,11 +7,11 @@ use Doctrine\ORM\ORMSetup;
 
 class EntityManagerCreator 
 {
-    public static function createEntityManager()
+    public static function createEntityManager():EntityManager
     {
         // Create a simple "default" Doctrine ORM configuration for Attributes
         $config = ORMSetup::createAttributeMetadataConfiguration(
-            [__DIR__."/src"],
+            [__DIR__."/.."],
             true,
         );
 
@@ -22,7 +22,7 @@ class EntityManagerCreator
         ];
 
         // obtaining the entity manager
-        $entityManager = EntityManager::create($conn, $config);
+        return EntityManager::create($conn, $config);
 
 
     }
